@@ -1,0 +1,17 @@
+version: '3'
+services:
+  tiddlywiki:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./tiddlywiki:/var/lib/tiddlywiki
+    restart: unless-stopped
+    ports:
+      - "8088:8088"
+    #environment:
+    #  - DEBUG_LEVEL=debug
+    #  - PATH_PREFIX=\wiki
+    #  - NODE_MEM=128
+    #  - USERNAME=test
+    #  - PASSWORD=test
