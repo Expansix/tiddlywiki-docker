@@ -3,42 +3,11 @@
 Run TiddlyWiki 5 via Docker.
 
 Forked from
-[djmaze/tiddlywiki-docker](https://github.com/djmaze/tiddlywiki-docker).
-
-The Docker image is available at [m0wer/tiddlywiki - Docker
-Hub](https://hub.docker.com/r/m0wer/tiddlywiki).
-
-## Available Docker Images at DockerHub
-
-Image Name       | Tag        | TiddyWiki Version
------------------|------------|------------------
-m0wer/tiddlywiki | latest     | 5.2.7
-m0wer/tiddlywiki | v[X]       | [X]
-m0wer/tiddlywiki | test       | ?
+[m0wer/tiddlywiki-docker](https://github.com/m0wer/tiddlywiki-docker).
 
 ## Prerequisites
 
 * Docker.
-
-## Quickstart
-
-```bash
-docker run -d -p 8080:8080 m0wer/tiddlywiki
-```
-
-Now TiddlyWiki should be running on
-[http://localhost:8080](http://localhost:8080).
-
-## Keeping the data
-
-The container uses a Docker volume to save the wiki data. In order not
-to lose sight of that, I recommend using a local directory for the volume.
-
-```bash
-docker run -d -p 8080:8080 -v $(pwd)/.tiddlywiki:/var/lib/tiddlywiki m0wer/tiddlywiki
-```
-
-In this example, the folder `$(pwd)/.tiddlywiki` is used for the data.
 
 ## Authentication
 

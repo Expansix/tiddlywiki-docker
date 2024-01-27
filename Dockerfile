@@ -1,6 +1,7 @@
 FROM node:alpine
 
-RUN npm install -g tiddlywiki@5.2.7
+ARG TW_VERSION=5.3.1
+RUN npm install -g tiddlywiki@$TW_VERSION
 
 # Setup wiki volume
 VOLUME /var/lib/tiddlywiki
