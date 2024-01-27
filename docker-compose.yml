@@ -8,10 +8,10 @@ services:
       - ./tiddlywiki:/var/lib/tiddlywiki
     restart: unless-stopped
     ports:
-      - "8088:8088"
-    #environment:
-    #  - DEBUG_LEVEL=debug
-    #  - PATH_PREFIX=\wiki
-    #  - NODE_MEM=128
-    #  - USERNAME=test
-    #  - PASSWORD=test
+      - "${PORT}:${PORT}"
+    environment:
+      - DEBUG_LEVEL=${DEBUG_LEVEL:-none}
+      - PATH_PREFIX=${PATH_PREFIX}
+      #- NODE_MEM=128
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
