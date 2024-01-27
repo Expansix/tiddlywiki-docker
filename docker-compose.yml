@@ -12,7 +12,7 @@ services:
     environment:
       - PORT=${PORT:-8080}
       - DEBUG_LEVEL=${DEBUG_LEVEL:-none}
-      - PATH_PREFIX=${PATH_PREFIX:-/}
+      #- PATH_PREFIX=${PATH_PREFIX:-/}
       #- NODE_MEM=128
       - USERNAME=${USERNAME:-user}
       - PASSWORD=${PASSWORD:-wiki}
