@@ -3,6 +3,8 @@ set -e
 
 tiddlywiki_script=$(readlink -f $(which tiddlywiki))
 
+wiki_name=${WIKI_NAME-mywiki}
+
 if [ -n "$NODE_MEM" ]; then
     # Based on rule of thumb from:
     # http://fiznool.com/blog/2016/10/01/running-a-node-dot-js-app-in-a-low-memory-environment/
@@ -11,9 +13,9 @@ if [ -n "$NODE_MEM" ]; then
 fi
 
 if [ ! -d /var/lib/tiddlywiki/mywiki ]; then
-  /usr/bin/env node $NODEJS_V8_ARGS $tiddlywiki_script mywiki --init server
+  /usr/bin/env node $NODEJS_V8_ARGS $tiddlywiki_script $wiki_name --init server
 
-  mkdir /var/lib/tiddlywiki/mywiki/tiddlers
+  mkdir /var/lib/tiddlywiki/$wiki_name/tiddlers
 fi
 
 # Define plugins, see https://tiddlywiki.com/static/Using%2520TiddlyWiki%2520on%2520Node.js.html
@@ -34,4 +36,4 @@ fi
 
 # Start the tiddlywiki server
 
-exec /usr/bin/env node $NODEJS_V8_ARGS $tiddlywiki_script $plugins_params mywiki --listen $listen_params $EXTRAOPTIONS
+exec /usr/bin/env node $NODEJS_V8_ARGS $tiddlywiki_script $plugins_params $wiki_name --listen $listen_params $EXTRAOPTIONS
